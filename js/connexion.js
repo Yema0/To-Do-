@@ -1,26 +1,33 @@
-document.querySelector("#login-form")?.addEventListener("submit", function(event) {
+// Fonction réutilisable pour afficher un message dans la page
+function afficherMessage(texte, couleur = "green") {
+    const msgDiv = document.getElementById("message");
+    msgDiv.textContent = texte;
+    msgDiv.style.color = couleur;
+    msgDiv.style.fontWeight = "bold";
+    msgDiv.style.marginTop = "10px";
+  }
+  
+  // FORMULAIRE DE CONNEXION
+  document.querySelector("#login-form")?.addEventListener("submit", function(event) {
     event.preventDefault();
-
+  
     let email = document.getElementById("login-email").value;
     let password = document.getElementById("login-password").value;
     let storedUser = JSON.parse(localStorage.getItem("utilisateur"));
-    let message = document.getElementById("message");
-
+  
     if (storedUser && storedUser.email === email && storedUser.password === password) {
-        message.style.color = "green";
-        message.textContent = "Connexion réussie ! Redirection...";
-        localStorage.setItem("isLoggedIn", "true");
-        
-        // Rediriger après un petit délai pour voir le message
-        setTimeout(() => {
-            window.location.href = "./accueil.html";
-        }, 1500); // 1,5 seconde
+      afficherMessage("Connexion réussie ! Redirection...", "green");
+      localStorage.setItem("isLoggedIn", "true");
+  
+      setTimeout(() => {
+        window.location.href = "./accueil.html";
+      }, 1500);
     } else {
-        message.style.color = "red";
-        message.textContent = "Identifiants incorrects. Redirection vers l'inscription...";
-
-        setTimeout(() => {
-            window.location.href = "./index.html";
-        }, 2000);
+      afficherMessage("Identifiants incorrects. Redirection vers l'inscription...", "red");
+  
+      setTimeout(() => {
+        window.location.href = "index.html";
+      }, 2000);
     }
-});
+  });
+  

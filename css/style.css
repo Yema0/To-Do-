@@ -175,6 +175,7 @@ button:hover{
     width: 60%;
     height: 70vh;
     margin-left: 500px;
+    margin-top: -60px;
    /* max-width: 400px;*/
   }
   
@@ -242,6 +243,11 @@ button:hover{
     margin-left: 10px;
     margin-top: 150px;
 }
-
+#message {
+    padding: 10px;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+  }
+  
 
   
