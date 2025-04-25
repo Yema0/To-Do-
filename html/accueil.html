@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h1 class="h1">Accueil</h1>
+    <a href="/html/index.html" class="h1">Isncription</a>
+    <a href="/html/connexion.html" class="h1">Connexion</a>
+<div>
+        <button id="toggle-users-btn" class="aff">Afficher les utilisateurs</button>
+        <div id="liste-utilisateurs" class="hidden" style="display: none;"></div>
+</div>
+
+    <div class="accueil-container todo-container">
+        <h2>Bienvenue, <span id="nom"></span> Sur Votre TO-DO LITS!</h2>
+        <p>Vous êtes connecté(e).</p>
+            <div class="input-group">
+              <input type="text" id="taskInput" placeholder="Ajouter une tâche..." />
+              <button onclick="addTask()">Ajouter</button>
+    </div>
+    <ul id="taskList"></ul>
+        
+    <div id="user-info" class="hidden"></div>
+    <p id="message" style="color: red;"></p>
+    <button id="logout-btn">Déconnexion</button>
+    <script src="/js/Script.js"></script>
+</body>
+</html>
