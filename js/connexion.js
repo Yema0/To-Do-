@@ -8,16 +8,19 @@ function afficherMessage(texte, couleur = "green") {
   }
   
   // FORMULAIRE DE CONNEXION
-  document.querySelector("#login-form")?.addEventListener("submit", function(event) {
+document.querySelector("#login-form")?.addEventListener("submit", function(event) {
     event.preventDefault();
   
     let email = document.getElementById("login-email").value;
     let password = document.getElementById("login-password").value;
-    let storedUser = JSON.parse(localStorage.getItem("utilisateur"));
+    let utilisateurs = JSON.parse(localStorage.getItem("utilisateurs")) || [];
   
-    if (storedUser && storedUser.email === email && storedUser.password === password) {
+    let utilisateurTrouve = utilisateurs.find(u => u.email === email && u.password === password);
+  
+    if (utilisateurTrouve) {
       afficherMessage("Connexion réussie ! Redirection...", "green");
       localStorage.setItem("isLoggedIn", "true");
+      localStorage.setItem("utilisateurConnecte", JSON.stringify(utilisateurTrouve));
   
       setTimeout(() => {
         window.location.href = "./accueil.html";

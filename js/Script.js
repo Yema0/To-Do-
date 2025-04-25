@@ -31,6 +31,7 @@ function afficherMessage(texte, couleur = "green") {
   });
   
   
+  
   // TABLEAU DE BORD
   const toggleBtn = document.getElementById("toggle-users-btn");
   const listeDiv = document.getElementById("liste-utilisateurs");
